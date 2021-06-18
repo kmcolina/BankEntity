@@ -15,10 +15,11 @@ CREATE TABLE [IF NOT EXISTS] cliente (
    cedula int unique,
    nombre varchar (20),
    apellido varchar (20),
+   nombre_Comercio varchar (50),
    correo varchar (50) unique ,
    id_tipo_cliente int REFERENCES tipo_cliente (id_tipo_cliente),
    usuario varchar(15) unique,
-   clave varchar(15)
+   clave varchar(15) not null
 );
 
 --validar formato de correo en el formulario 
@@ -49,6 +50,17 @@ CREATE TABLE [IF NOT EXISTS] tipo_transaccion (
    descripcion varchar(20) 
 );
 
+
+--tabla estado de la transaccion
+
+CREATE TABLE [IF NOT EXISTS] estado_transaccion (
+   id_estado_transaccion int PRIMARY KEY,
+   descripcion varchar(20) 
+);
+
+
+
+
 --tabla tarjeta
 
 CREATE TABLE [IF NOT EXISTS] tarjeta (
@@ -56,7 +68,7 @@ CREATE TABLE [IF NOT EXISTS] tarjeta (
    id_cliente int REFERENCES cliente (id_cliente),
    numero_tarjeta int unique,
    ccv int,
-   fecha_vencimiento timestamp
+   fecha_vencimiento date
 );
 
 
