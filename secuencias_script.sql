@@ -39,3 +39,13 @@ create sequence  sec_id_tarjeta
   increment by 1
   maxvalue 99999
   minvalue 1;
+
+--secuencia id log
+
+create sequence  sec_id_log
+  start with 1
+  increment by 1
+  maxvalue 99999
+  minvalue 1;
+
+
