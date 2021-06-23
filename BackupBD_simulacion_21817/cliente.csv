@@ -1,0 +1,12 @@
+id_cliente,cedula,nombre,apellido,nombre_comercio,correo,id_tipo_cliente,usuario,usr,clave
+1,9706393,,,Primer Comercio,primercomercio@correo.com,2,e63d6e677705d630817c052f0eee361b,primcomer1,cdb32e96ebfec18d163696307ff1521f
+2,7076625,Mellissa,Mortimore,,Mellissa.Mortimore@correo.com,1,7ec09801162c308052cf82d105a5bd87,uvxyksmr,fe9a25cc2c247d506b2d12a7a1a2f68d
+3,6750553,Lesia,Stoute,,Lesia.Stoute@correo.com,1,a2eb1c9d3e8ff2666530ea4cf565cbe5,zosprqsb,10e75e9ef94df473a92f95792307ed36
+4,3582016,Pauletta,Murton,,Pauletta.Murton@correo.com,1,d78c0366ffc4d6da03b0067656e8a19e,uazixpsc,9533cc3895c54e8db8aa89e69feeb4a7
+5,5437561,Solomon,Chamberlin,,Solomon.Chamberlin@correo.com,1,9b883cafe3df1a8432fcebcc9e66be3e,fdcqoreo,c90a58e65bdb3a17f453b4147f3939d8
+6,5843326,Neville,Yocom,,Neville.Yocom@correo.com,1,5ff7eb6ff344230b494c63ef4f8a7406,mwgszfmp,e71f9302fac3ca64ae24edbd6de952bd
+7,1970399,Vera,Edmiston,,Vera.Edmiston@correo.com,1,685d997306f511c6b97a9b4ac1c1dd78,cmvwplqd,7ae297725db81a31d52d8a7efcaad229
+8,2601183,Lawerence,Amburn,,Lawerence.Amburn@correo.com,1,bb377b4c609f8aef54c9211391dab5d2,ruqyifyb,e048b1b11587e419c9e15c2cd6c574dc
+9,8819831,Cedrick,Agnew,,Cedrick.Agnew@correo.com,1,e112e346d7c0ddaa64598711431fcceb,efjwsego,035f108260757fc789be37dad1d0380d
+10,5725362,Melinda,Kuchta,,Melinda.Kuchta@correo.com,1,6de802f97a1d30ba38b8827ddc4e5c9e,uyiweiyg,1d6585b451a351d48697d516aa627936
+11,5688280,Alma,Gelinas,,Alma.Gelinas@correo.com,1,c1c9bc01a678d6d5fda7909f37057fd3,ycvudqcn,f8e54de8e7447988f474322dd45a8746

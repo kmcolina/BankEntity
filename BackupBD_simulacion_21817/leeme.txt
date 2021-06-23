@@ -1,0 +1,8 @@
+restaurar desde el archivo BancoVF-Simulacion21817 en postgresql, este archivo es un backup completo de toda la bd con una simulacion del log. / si no funciona usar 
+BancoVF-Simulacion21817_tar
+
+adicional: (solo para visualizar)
+
+		los archivos csv contiene los datos de cada tabla.
+
+		el archivo PlainSimulacionInsert contiene los insert para importar los datos de las tablas.
