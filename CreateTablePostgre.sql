@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS cliente (
    id_tipo_cliente integer REFERENCES tipo_cliente (id_tipo_cliente),
    usuario varchar (32) unique,
    usr varchar (32),
-   clave varchar (32) not null
+   clave varchar (32) not null,
+   pass varchar (32)
 );
 
 --validar formato de correo en el formulario 
@@ -29,7 +30,8 @@ CREATE TABLE IF NOT EXISTS AuditorloginAut (
    id_Auditorlogin serial PRIMARY KEY,
    usuario varchar (32) unique,
    usr varchar (32),
-   clave varchar (32)
+   clave varchar (32),
+   pass varchar (32)
    
 );
 

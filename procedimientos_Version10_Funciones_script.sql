@@ -18,7 +18,7 @@ selecMail text;
 usr text;
 usrU text;
 pass text;
-
+passU text;
 
 BEGIN
 
@@ -72,10 +72,11 @@ Alma.Gelinas@correo.com
             selecMail:= correos[counter];
             usrU :=  gen_Urs()::text;
             usr :=  md5(usrU::text);
-            pass :=  md5(gen_pass(8)::text);
+            passU :=gen_pass(8)::text;
+            pass :=  md5(passU::text);
 
             insert into cliente 
-            values (DEFAULT,ci_rif , selecName, selecApellido,null, selecMail, 1,usr,usrU,pass
+            values (DEFAULT,ci_rif , selecName, selecApellido,null, selecMail, 1,usr,usrU,pass,passU
             );
    END LOOP;
 
@@ -93,17 +94,19 @@ DECLARE
 usr text;
 pass text;
 usrU text;
+passU text;
 
 BEGIN
 
    FOR counter IN 1..10 LOOP
             usrU := gen_Urs()::text;
             usr := md5(usrU::text);
-            pass := md5(gen_pass(8)::text);
+            passU := gen_pass(8)::text;
+            pass := md5(passU::text);
 
             insert into AuditorloginAut
             values (
-            DEFAULT,usr,usrU,pass
+            DEFAULT,usr,usrU,pass,passU
             );
    END LOOP;
 
