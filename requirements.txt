@@ -1,0 +1,6 @@
+django==3.2
+gunicorn==20.1
+django-heroku==0.3
+djangorestframework==3.12
+psycopg2==2.7
+python==3.7
