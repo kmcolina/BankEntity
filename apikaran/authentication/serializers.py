@@ -58,10 +58,13 @@ class UserNaturalSignUpSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         pass
 
+    def get_tipo_cliente(self):
+        return TipoCliente.objects.get(descripcion__exact='Natural')
+
     def create(self, data):
 
         try:
-            tipo_cliente = TipoCliente.objects.get(descripcion__exact='Natural')
+            tipo_cliente = self.get_tipo_cliente()
         except TipoCliente.DoesNotExist:
             raise serializers.ValidationError("No se puede registrar usuario")
 
@@ -84,3 +87,8 @@ class UserNaturalSignUpSerializer(serializers.Serializer):
         cliente.save()
 
         return user
+
+
+class UserJuridicoSignUpSerializer(UserNaturalSignUpSerializer):
+    def get_tipo_cliente(self):
+        return TipoCliente.objects.get(descripcion__exact='Juridico')
