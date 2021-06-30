@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 from apikaran.authentication.views import AuthViewSet
 
 router = DefaultRouter()
-router.register('auth', AuthViewSet, basename='auth')
+router.register('', AuthViewSet, basename='auth')
 
 urlpatterns = [
     path('', include(router.urls))
