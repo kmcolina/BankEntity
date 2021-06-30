@@ -9,6 +9,8 @@ psycopg2 = "*"
 djangorestframework = "*"
 gunicorn = "*"
 django-heroku = "*"
+dj-database-url = "*"
+whitenoise = "*"
 
 [dev-packages]
 
