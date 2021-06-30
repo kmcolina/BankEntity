@@ -1,7 +1,5 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
-
-from apikaran.cliente.customusermanager import CustomUserManager
+from django.contrib.auth.models import User
 
 
 class TipoCliente(models.Model):
@@ -14,13 +12,13 @@ class TipoCliente(models.Model):
         return self.descripcion
 
 
-class Cliente(AbstractUser):
+class Cliente(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     dni = models.IntegerField(unique=True)
     tipoCliente = models.OneToOneField(TipoCliente, on_delete=models.RESTRICT)
-    objects = CustomUserManager()
 
     class Meta:
         db_table= 'clientes'
 
     def __str__(self):
-        return self.email
+        return self.user.email
