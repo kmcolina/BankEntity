@@ -58,6 +58,10 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+REST_FRAMEWORK = {
+    'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata'
+}
+
 ROOT_URLCONF = 'bancoKaran.urls'
 
 TEMPLATES = [
