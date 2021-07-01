@@ -15,7 +15,7 @@ class TipoCliente(models.Model):
 class Cliente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dni = models.IntegerField(unique=True)
-    tipoCliente = models.OneToOneField(TipoCliente, on_delete=models.RESTRICT)
+    tipoCliente = models.ForeignKey(TipoCliente, on_delete=models.RESTRICT)
 
     class Meta:
         db_table= 'clientes'
