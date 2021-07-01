@@ -6,8 +6,8 @@ from apikaran.authentication.serializers import UserNaturalSignUpSerializer, Use
     UserJuridicoSignUpSerializer
 
 
-class AuthViewSet(viewsets.GenericViewSet):
-    @action(detail=False, methods=['post'], url_path='register/natural')
+class AuthViewSet(viewsets.ViewSet):
+    @action(detail=False, methods=['post'], url_path='register/natural', name='register Natural')
     def signupnatural(self, request):
         serializer = UserNaturalSignUpSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
