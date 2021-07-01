@@ -1,6 +1,6 @@
-from django.contrib.auth import password_validation
-from rest_framework import serializers
+from django.contrib.auth import password_validation, authenticate
 from django.contrib.auth.models import User
+from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
 from apikaran.cliente.models import Cliente, TipoCliente
@@ -92,3 +92,33 @@ class UserNaturalSignUpSerializer(serializers.Serializer):
 class UserJuridicoSignUpSerializer(UserNaturalSignUpSerializer):
     def get_tipo_cliente(self):
         return TipoCliente.objects.get(descripcion__exact='Juridico')
+
+
+class LoginSerializers(serializers.Serializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(trim_whitespace=False, required=True)
+
+    def validate(self, data):
+        username = data.get('username')
+        password = data.get('password')
+
+        if username and password:
+            user = authenticate(request=self.context.get('request'),
+                                username=username, password=password)
+            if not user:
+                msg = 'Credenciales invalidas'
+                raise serializers.ValidationError(msg, code='authorization')
+        else:
+            msg = 'Debe incluir "username" y "password"'
+            raise serializers.ValidationError(msg, code='authorization')
+
+        data['user'] = user
+        return data
+
+    def update(self, instance, validated_data):
+        pass
+
+    def create(self, validated_data):
+        pass
+
+
