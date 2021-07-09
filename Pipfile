@@ -13,6 +13,7 @@ dj-database-url = "*"
 whitenoise = "*"
 django-cors-headers = "*"
 django-oauth-toolkit = "*"
+django-environ = "*"
 
 [dev-packages]
 
