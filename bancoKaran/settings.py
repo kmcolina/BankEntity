@@ -15,6 +15,7 @@ from environ import Env
 
 import dj_database_url
 import django_heroku
+
 env = Env()
 Env.read_env()
 
@@ -70,9 +71,25 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer'
-    ]
+    ],
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
 
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {
+        'read': 'Read scope',
+        'write': 'Write scope',
+        'web_read': 'Read Web scope',
+        'web_write': 'Write Web scope'
+    },
+    'DEFAULT_SCOPES': {
+        'read': 'Read scope',
+    },
+    'ACCESS_TOKEN_GENERATOR': 'apikaran.authentication.generators.random_token_generator'
+}
 ROOT_URLCONF = 'bancoKaran.urls'
 
 TEMPLATES = [
@@ -100,7 +117,7 @@ WSGI_APPLICATION = 'bancoKaran.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':  env('DATABASE_NAME'),
+        'NAME': env('DATABASE_NAME'),
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASSWORD'),
         'HOST': env('DATABASE_HOST'),

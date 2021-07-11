@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class TipoCliente(models.Model):
@@ -18,7 +18,7 @@ class Cliente(models.Model):
     tipoCliente = models.ForeignKey(TipoCliente, on_delete=models.RESTRICT)
 
     class Meta:
-        db_table= 'clientes'
+        db_table = 'clientes'
 
     def __str__(self):
         return self.user.email

@@ -1,13 +1,20 @@
-from django.contrib.auth import login
+import json
+
+from oauth2_provider.models import get_access_token_model
+from oauth2_provider.views import TokenView
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+
 # Create your views here.
 from apikaran.authentication.serializers import UserNaturalSignUpSerializer, UserModelSerializer, \
-    UserJuridicoSignUpSerializer, LoginSerializers
+    UserJuridicoSignUpSerializer
 
 
 class AuthViewSet(viewsets.ViewSet):
+    authentication_classes = []
+    permission_classes = []
+
     @action(detail=False, methods=['post'], url_path='register/natural', name='register Natural')
     def signupnatural(self, request):
         serializer = UserNaturalSignUpSerializer(data=request.data)
@@ -24,10 +31,14 @@ class AuthViewSet(viewsets.ViewSet):
         data = UserModelSerializer(user).data
         return Response(data, status=status.HTTP_201_CREATED)
 
-    @action(detail=False, methods=['post'], url_path='login')
-    def login(self, request):
-        serializer = LoginSerializers(data=request.data, context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        login(request, user)
-        return Response(status=status.HTTP_200_OK)
+
+class AuthLogin(TokenView):
+    def create_token_response(self, request):
+        url, headers, body, status = super().create_token_response(request)
+        access_token = json.loads(body).get("access_token")
+        token = get_access_token_model().objects.select_related("user").filter(token=access_token).first()
+        data = UserModelSerializer(token.user).data
+        new_body = json.loads(body)
+        new_body['user'] = data
+        new_body = json.dumps(new_body)
+        return url, headers, new_body, status

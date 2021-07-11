@@ -120,5 +120,3 @@ class LoginSerializers(serializers.Serializer):
 
     def create(self, validated_data):
         pass
-
-

@@ -21,8 +21,10 @@ from django.urls import path, include
 def index(request):
     return HttpResponse("Welcome to Banco Karan API")
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('auth/', include(('apikaran.authentication.urls', 'auth'), namespace='auth')),
     path('', index)
 ]
