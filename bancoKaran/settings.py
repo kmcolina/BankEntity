@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-from environ import Env
 
 import dj_database_url
 import django_heroku
+from environ import Env
 
 env = Env()
 Env.read_env()
@@ -72,6 +72,9 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer'
     ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )
@@ -88,7 +91,8 @@ OAUTH2_PROVIDER = {
     'DEFAULT_SCOPES': {
         'read': 'Read scope',
     },
-    'ACCESS_TOKEN_GENERATOR': 'apikaran.authentication.generators.random_token_generator'
+    'ACCESS_TOKEN_GENERATOR': 'apikaran.authentication.generators.random_token_generator',
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore',
 }
 ROOT_URLCONF = 'bancoKaran.urls'
 
