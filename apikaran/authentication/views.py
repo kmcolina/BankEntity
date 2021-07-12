@@ -35,10 +35,12 @@ class AuthViewSet(viewsets.ViewSet):
 class AuthLogin(TokenView):
     def create_token_response(self, request):
         url, headers, body, status = super().create_token_response(request)
-        access_token = json.loads(body).get("access_token")
-        token = get_access_token_model().objects.select_related("user").filter(token=access_token).first()
-        data = UserModelSerializer(token.user).data
         new_body = json.loads(body)
-        new_body['user'] = data
+        if status == 200:
+            access_token = json.loads(body).get("access_token")
+            token = get_access_token_model().objects.select_related("user").filter(token=access_token).first()
+            data = UserModelSerializer(token.user).data
+            new_body = json.loads(body)
+            new_body['user'] = data
         new_body = json.dumps(new_body)
         return url, headers, new_body, status
