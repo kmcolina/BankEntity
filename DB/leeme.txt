@@ -1,7 +1,0 @@
-abrir el shell de postgres (psql)
-
-ejecutar la instruccion 
-
-\i 'rutaArchivo/0_crearBD.sql'
-
-esto creara una bd y cargara unos datos simulados de log y de todas las tablas.
