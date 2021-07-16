@@ -10,9 +10,9 @@ class CustomJsonRender(JSONRenderer):
             error = None
             new_data = None
             if code >= 400:
-                error = data.pop('data', data)
+                error = data
             else:
-                new_data = data.pop('data', data)
+                new_data = data
             res = {
                 'code': code,
                 'data': new_data,
