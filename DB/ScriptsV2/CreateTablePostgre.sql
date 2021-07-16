@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS AuditorloginAut (
 
 CREATE TABLE IF NOT EXISTS cuenta (
    id_cuenta serial PRIMARY KEY,
-   id_cliente integer REFERENCES auth_user (id),
+   id_cliente integer REFERENCES clientes (id),
    numero_cuenta decimal unique,
    saldo_actual int
 );
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS estado_transaccion (
 
 CREATE TABLE IF NOT EXISTS tarjeta (
    id_tarjeta serial PRIMARY KEY,
-   id_cliente integer REFERENCES auth_user (id),
+   id_cliente integer REFERENCES clientes (id),
    numero_tarjeta decimal unique,
    ccv int,
    fecha_vencimiento date,

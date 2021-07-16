@@ -473,7 +473,7 @@ CREATE TRIGGER cuentaCliente_insert_trigger
 
   AFTER INSERT
 
-  ON "auth_user"
+  ON "clientes"
 
   FOR EACH ROW
 

@@ -17,5 +17,5 @@
 
 
 --lleno las tablas
-\ir llenarTablas.sql
+--\ir llenarTablas.sql
 
