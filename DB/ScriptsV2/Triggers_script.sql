@@ -49,7 +49,7 @@ perform insert_random_tarjeta(id_cli);
       --llamo al procedimiento
 cuenta := (select id_cuenta from cuenta  where numero_cuenta=num_cuenta);
 
-        if (NEW.id_tipo_cliente=2) then     
+        if (NEW."tipoCliente_id"=2) then
       perform  insert_random_apiKey(cuenta);
 
         END IF;  
