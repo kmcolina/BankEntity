@@ -71,8 +71,8 @@ $$ LANGUAGE sql;
  CREATE OR REPLACE FUNCTION series_cuentas(a int) RETURNS int[] AS $$   
     select array(
      select id
-                    from auth_user
-                    where id_tipo_cliente =a   
+                    from clientes
+                    where tipoCliente_id =a
     )
     as areas;
 $$ LANGUAGE sql;
@@ -82,7 +82,7 @@ $$ LANGUAGE sql;
  CREATE OR REPLACE FUNCTION series_Todas_cuentas() RETURNS int[] AS $$   
     select array(
      select id
-                    from auth_user
+                    from clientes
                       
     )
     as areas;
@@ -94,8 +94,8 @@ $$ LANGUAGE sql;
  CREATE OR REPLACE FUNCTION series_clientes(a int) RETURNS int[] AS $$   
     select array(
      select id
-                    from auth_user
-                    where id_tipo_cliente =a   
+                    from clientes
+                    where tipoCliente_id =a
     )
     as areas;
 $$ LANGUAGE sql;
