@@ -26,5 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('auth/', include(('apikaran.authentication.urls', 'auth'), namespace='auth')),
+    path('account/', include(('apikaran.account.urls', 'account'), namespace='account')),
     path('', index)
 ]

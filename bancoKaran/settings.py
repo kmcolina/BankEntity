@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'apikaran.cliente',
     'rest_framework',
-    'apikaran.authentication'
+    'apikaran.authentication',
+    'apikaran.account'
 ]
 
 MIDDLEWARE = [
